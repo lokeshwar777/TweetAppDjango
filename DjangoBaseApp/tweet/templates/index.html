@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django Base App</title>
-    <style>
-        body {
-            background-color: #000;
-            color: #fff;
-        }
-    </style>
-</head>
-<body>
-    Test Django Base App
-</body>
-</html>
+{% extends "layout.html" %}
+
+{% block title %}
+    Django Base App - Home
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center mt-4">Welcome to Django Base App!</h1>
+{% endblock %}
