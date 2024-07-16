@@ -1,0 +1,33 @@
+{% extends 'layout.html' %} {% block title %} Django Base App {% endblock %}
+{%block content %}
+
+<h1 class="text-center mt-4">Welcome to Django Base App!</h1>
+
+<a class="btn btn-primary mt-4 mb-3" href="{% url 'tweet_create' %}"
+  >Create a tweet</a
+>
+<div class="container row gap-3">
+  {% for tweet in tweets %}
+  <div class="card" style="width: 18rem">
+    <img
+      src="{{tweet.photo.url}}"
+      class="card-img-top mt-2 rounded"
+      alt="..."
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{tweet.user.username}}</h5>
+      <p class="card-text">{{tweet.text}}</p>
+      <a
+        href="{% url 'tweet_edit' tweet.id %}"
+        class="btn btn-primary px-4 me-5"
+        >Edit</a
+      >
+      <a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-danger px-3"
+        >Delete</a
+      >
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
